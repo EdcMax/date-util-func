@@ -1,1 +1,3 @@
-name:
+name: Go
+on: [push]
+job
