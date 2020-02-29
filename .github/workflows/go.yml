@@ -3,4 +3,5 @@ on: [push]
 jobs:
 
   test:
-  
+    name: Test
+    ru
