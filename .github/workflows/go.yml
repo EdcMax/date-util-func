@@ -6,4 +6,5 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     strategy:
-  
+      matrix:
+        go: [ 
