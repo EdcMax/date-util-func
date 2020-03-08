@@ -10,4 +10,5 @@ jobs:
         go: [ '1.17.x', '1.18.x' ]
     steps:
 
-    - name: S
+    - name: Set up Go
+      u
