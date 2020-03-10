@@ -11,4 +11,4 @@ jobs:
     steps:
 
     - name: Set up Go
-      u
+      uses: actions/setup-g
