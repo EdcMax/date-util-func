@@ -14,4 +14,6 @@ jobs:
       uses: actions/setup-go@v3
       with:
         go-version: ${{ matrix.go }}
-      id
+      id: go
+
+    - name: Che
