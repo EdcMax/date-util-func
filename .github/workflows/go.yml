@@ -16,4 +16,4 @@ jobs:
         go-version: ${{ matrix.go }}
       id: go
 
-    - name: Che
+    - name: Check out code into the Go
