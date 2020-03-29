@@ -29,3 +29,5 @@ jobs:
         release_name: Release ${{ github.ref }}
     - name: Upload
       run: make upload
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
