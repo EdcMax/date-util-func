@@ -1,1 +1,2 @@
-BIN :
+BIN := goreman
+VERSION := $$(ma
