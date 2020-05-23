@@ -1,2 +1,2 @@
 BIN := goreman
-VERSION := $$(ma
+VERSION := $$(make -s show-ve
