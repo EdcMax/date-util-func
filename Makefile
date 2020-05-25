@@ -1,2 +1,3 @@
 BIN := goreman
-VERSION := $$(make -s show-ve
+VERSION := $$(make -s show-version)
+CURRENT_REVISION 
