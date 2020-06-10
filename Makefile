@@ -5,3 +5,6 @@ BUILD_LDFLAGS := "-s -w -X main.revision=$(CURRENT_REVISION)"
 GOBIN ?= $(shell go env GOPATH)/bin
 
 .PHONY: all
+all: build
+
+.PHO
