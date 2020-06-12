@@ -9,4 +9,4 @@ all: build
 
 .PHONY: build
 build:
-	go build -ldflags=$(BUILD_L
+	go build -ldflags=$(BUILD_LDFLAGS) -
