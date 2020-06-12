@@ -7,4 +7,6 @@ GOBIN ?= $(shell go env GOPATH)/bin
 .PHONY: all
 all: build
 
-.PHO
+.PHONY: build
+build:
+	go 
