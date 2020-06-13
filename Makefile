@@ -11,4 +11,6 @@ all: build
 build:
 	go build -ldflags=$(BUILD_LDFLAGS) -o $(BIN) .
 
-.PHONY
+.PHONY: install
+install:
+	
