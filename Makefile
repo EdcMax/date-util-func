@@ -13,4 +13,4 @@ build:
 
 .PHONY: install
 install:
-	
+	go install -ldflags=$
