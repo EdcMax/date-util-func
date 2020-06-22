@@ -15,4 +15,5 @@ build:
 install:
 	go install -ldflags=$(BUILD_LDFLAGS) .
 
-.PHONY:
+.PHONY: show-version
+show-vers
