@@ -19,4 +19,5 @@ install:
 show-version: $(GOBIN)/gobump
 	@gobump show -r .
 
-$(GOBIN)/go
+$(GOBIN)/gobump:
+	@go install github.com/
