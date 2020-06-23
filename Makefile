@@ -24,4 +24,4 @@ $(GOBIN)/gobump:
 
 .PHONY: cross
 cross: $(GOBIN)/goxz
-	goxz -
+	goxz -n $(BIN) -pv
