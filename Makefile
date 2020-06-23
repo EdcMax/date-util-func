@@ -17,4 +17,6 @@ install:
 
 .PHONY: show-version
 show-version: $(GOBIN)/gobump
-	@gobump sh
+	@gobump show -r .
+
+$(GOBIN)/go
