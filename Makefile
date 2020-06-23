@@ -20,4 +20,4 @@ show-version: $(GOBIN)/gobump
 	@gobump show -r .
 
 $(GOBIN)/gobump:
-	@go install github.com/
+	@go install github.com/x-motemen/gobump/
