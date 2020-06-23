@@ -16,4 +16,4 @@ install:
 	go install -ldflags=$(BUILD_LDFLAGS) .
 
 .PHONY: show-version
-show-vers
+show-version: $(GOBIN)/gobu
