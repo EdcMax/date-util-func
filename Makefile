@@ -23,4 +23,5 @@ $(GOBIN)/gobump:
 	@go install github.com/x-motemen/gobump/cmd/gobump@latest
 
 .PHONY: cross
-cro
+cross: $(GOBIN)/goxz
+	goxz -
