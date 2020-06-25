@@ -24,4 +24,4 @@ $(GOBIN)/gobump:
 
 .PHONY: cross
 cross: $(GOBIN)/goxz
-	goxz -n $(BIN) -pv
+	goxz -n $(BIN) -pv=v$(VERSION) -build-ldfl
