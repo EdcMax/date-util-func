@@ -27,4 +27,4 @@ cross: $(GOBIN)/goxz
 	goxz -n $(BIN) -pv=v$(VERSION) -build-ldflags=$(BUILD_LDFLAGS) .
 
 $(GOBIN)/goxz:
-	go install github.co
+	go install github.com/Songmu/goxz/cmd/go
