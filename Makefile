@@ -29,4 +29,5 @@ cross: $(GOBIN)/goxz
 $(GOBIN)/goxz:
 	go install github.com/Songmu/goxz/cmd/goxz@latest
 
-.PHON
+.PHONY: test
+test: buil
