@@ -30,4 +30,5 @@ $(GOBIN)/goxz:
 	go install github.com/Songmu/goxz/cmd/goxz@latest
 
 .PHONY: test
-test: buil
+test: build
+	go test -v ./...
