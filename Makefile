@@ -32,3 +32,6 @@ $(GOBIN)/goxz:
 .PHONY: test
 test: build
 	go test -v ./...
+
+.PHONY: clean
+clean:
