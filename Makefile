@@ -40,4 +40,6 @@ clean:
 
 .PHONY: upload
 upload: $(GOBIN)/ghr
-	ghr
+	ghr "v$(VERSION)" goxz
+
+$(GOBIN
