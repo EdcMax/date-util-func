@@ -42,4 +42,5 @@ clean:
 upload: $(GOBIN)/ghr
 	ghr "v$(VERSION)" goxz
 
-$(GOBIN
+$(GOBIN)/ghr:
+	go install gi
