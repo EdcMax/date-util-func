@@ -43,4 +43,4 @@ upload: $(GOBIN)/ghr
 	ghr "v$(VERSION)" goxz
 
 $(GOBIN)/ghr:
-	go install github.com/tcnksm/gh
+	go install github.com/tcnksm/ghr@latest
