@@ -1,3 +1,5 @@
 # Goreman
 
-Clone of forema
+Clone of foreman written in golang.
+
+htt
