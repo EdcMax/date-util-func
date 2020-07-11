@@ -36,4 +36,6 @@ test: build
 .PHONY: clean
 clean:
 	rm -rf $(BIN) goxz
-	
+	go clean
+
+.PHONY: upload
