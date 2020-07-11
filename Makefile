@@ -39,3 +39,5 @@ clean:
 	go clean
 
 .PHONY: upload
+upload: $(GOBIN)/ghr
+	ghr
