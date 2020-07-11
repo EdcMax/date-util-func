@@ -2,4 +2,4 @@
 
 Clone of foreman written in golang.
 
-htt
+https://github.com/ddollar/
