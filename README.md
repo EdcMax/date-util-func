@@ -2,4 +2,6 @@
 
 Clone of foreman written in golang.
 
-https://github.com/ddollar/
+https://github.com/ddollar/foreman
+
+## Getting S
