@@ -12,4 +12,4 @@ https://github.com/ddollar/foreman
 
     goreman start
 
-Wi
+Will start all 
