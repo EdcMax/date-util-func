@@ -6,4 +6,4 @@ https://github.com/ddollar/foreman
 
 ## Getting Started
 
-    go 
+    go install github.com/mattn/gor
