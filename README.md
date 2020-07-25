@@ -8,4 +8,6 @@ https://github.com/ddollar/foreman
 
     go install github.com/mattn/goreman@latest
 
-## U
+## Usage
+
+    gore
