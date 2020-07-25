@@ -10,4 +10,6 @@ https://github.com/ddollar/foreman
 
 ## Usage
 
-    gore
+    goreman start
+
+Wi
