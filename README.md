@@ -12,4 +12,4 @@ https://github.com/ddollar/foreman
 
     goreman start
 
-Will start all 
+Will start all commands defined in t
