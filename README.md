@@ -13,4 +13,4 @@ https://github.com/ddollar/foreman
     goreman start
 
 Will start all commands defined in the `Procfile` and display their outputs.
-Any signals are 
+Any signals are forwarded to each proces
