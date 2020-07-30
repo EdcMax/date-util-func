@@ -17,4 +17,6 @@ Any signals are forwarded to each process.
 
 ## Example
 
-See [`_example`](_e
+See [`_example`](_example/) directory
+
+## 
