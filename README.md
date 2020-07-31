@@ -19,4 +19,8 @@ Any signals are forwarded to each process.
 
 See [`_example`](_example/) directory
 
-## 
+## License
+
+MIT
+
+## Desi
