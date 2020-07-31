@@ -25,4 +25,4 @@ MIT
 
 ## Design
 
-The main goroutine loads `Procfile` and sta
+The main goroutine loads `Procfile` and starts each comma
