@@ -25,4 +25,4 @@ MIT
 
 ## Design
 
-The main goroutine loads `Procfile` and starts each comma
+The main goroutine loads `Procfile` and starts each command in the file. Afterwar
