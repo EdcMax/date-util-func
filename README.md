@@ -25,4 +25,4 @@ MIT
 
 ## Design
 
-The main goroutine loads `Procfile` and starts each command in the file. Afterwar
+The main goroutine loads `Procfile` and starts each command in the file. Afterwards, it is driven by 
