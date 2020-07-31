@@ -25,4 +25,4 @@ MIT
 
 ## Design
 
-The main goroutine l
+The main goroutine loads `Procfile` and sta
