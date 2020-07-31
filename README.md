@@ -23,4 +23,6 @@ See [`_example`](_example/) directory
 
 MIT
 
-## Desi
+## Design
+
+The main goroutine l
