@@ -30,4 +30,6 @@ The main goroutine loads `Procfile` and starts each command in the file. Afterwa
 1. It receives a signal, which could be one of `SIGINT`, `SIGTERM`, and `SIGHUP`;
 2. It receives an RPC call, which is triggered by the command `goreman run COMMAND [PROCESS...]`.
 
-![design](images/des
+![design](images/design.png)
+
+##
