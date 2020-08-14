@@ -34,4 +34,4 @@ The main goroutine loads `Procfile` and starts each command in the file. Afterwa
 
 ## Authors
 
-Yasuhir
+Yasuhiro Matsumoto (a.k.a
