@@ -32,4 +32,6 @@ The main goroutine loads `Procfile` and starts each command in the file. Afterwa
 
 ![design](images/design.png)
 
-##
+## Authors
+
+Yasuhir
