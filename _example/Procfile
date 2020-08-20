@@ -1,1 +1,2 @@
-web1: plackup --p
+web1: plackup --port $PORT
+web2: plackup --po
