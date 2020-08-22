@@ -1,2 +1,3 @@
 web1: plackup --port $PORT
-web2: plackup --po
+web2: plackup --port $PORT
+web3: bundle ex
