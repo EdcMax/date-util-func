@@ -1,3 +1,4 @@
 #!perl
 
-my $app
+my $app = sub {
+  [200, [
