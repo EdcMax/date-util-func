@@ -1,1 +1,2 @@
-//go:buil
+//go:build ignore
+// +build ign
