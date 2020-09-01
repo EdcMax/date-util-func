@@ -1,2 +1,4 @@
 //go:build ignore
-// +build ign
+// +build ignore
+
+package m
