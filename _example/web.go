@@ -10,4 +10,4 @@ import (
 	"os"
 )
 
-v
+var addr = flag.Stri
