@@ -10,4 +10,4 @@ import (
 	"os"
 )
 
-var addr = flag.Stri
+var addr = flag.String("a", ":8080", "a
