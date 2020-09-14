@@ -12,4 +12,5 @@ import (
 
 var addr = flag.String("a", ":8080", "address")
 
-func 
+func main() {
+	flag.Parse()
