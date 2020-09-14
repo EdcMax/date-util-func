@@ -14,3 +14,4 @@ var addr = flag.String("a", ":8080", "address")
 
 func main() {
 	flag.Parse()
+	http.HandleFunc("/",
