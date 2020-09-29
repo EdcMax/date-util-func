@@ -17,4 +17,5 @@ func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintf(w, "hello "+os.Getenv("AUTHOR"))
 	})
-	http.ListenAndS
+	http.ListenAndServe(*addr, nil)
+}
