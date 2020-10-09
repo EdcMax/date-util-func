@@ -1,1 +1,4 @@
-package ma
+package main
+
+import (
+	"fmt"
