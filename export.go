@@ -3,4 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
-	"path/file
+	"path/filepath"
+	"strings"
+)
+
+f
