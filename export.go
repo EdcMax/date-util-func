@@ -7,4 +7,4 @@ import (
 	"strings"
 )
 
-func exportUpsta
+func exportUpstart(cfg *conf
