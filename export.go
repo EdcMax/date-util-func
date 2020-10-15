@@ -7,4 +7,4 @@ import (
 	"strings"
 )
 
-func exportUpstart(cfg *conf
+func exportUpstart(cfg *config, path string) error
