@@ -8,4 +8,5 @@ import (
 )
 
 func exportUpstart(cfg *config, path string) error {
-	for i, proc := 
+	for i, proc := range procs {
+		f, err
