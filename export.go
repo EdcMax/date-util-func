@@ -7,4 +7,5 @@ import (
 	"strings"
 )
 
-func exportUpstart(cfg *config, path string) error
+func exportUpstart(cfg *config, path string) error {
+	for i, proc := 
