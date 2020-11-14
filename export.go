@@ -9,4 +9,4 @@ import (
 
 func exportUpstart(cfg *config, path string) error {
 	for i, proc := range procs {
-		f, err
+		f, err := os.Create(filepat
