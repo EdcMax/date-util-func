@@ -11,4 +11,7 @@ func exportUpstart(cfg *config, path string) error {
 	for i, proc := range procs {
 		f, err := os.Create(filepath.Join(path, "app-"+proc.name+".conf"))
 		if err != nil {
-			return
+			return err
+		}
+
+		fmt.Fprintf(f, "
