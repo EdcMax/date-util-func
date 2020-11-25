@@ -14,4 +14,5 @@ func exportUpstart(cfg *config, path string) error {
 			return err
 		}
 
-		fmt.Fprintf(f, "start on starting app-%s
+		fmt.Fprintf(f, "start on starting app-%s\n", proc.name)
+		fmt.Fp
