@@ -20,4 +20,4 @@ func exportUpstart(cfg *config, path string) error {
 		fmt.Fprintf(f, "\n")
 
 		env := map[string]string{}
-		procfi
+		procfile, err := filepath.A
