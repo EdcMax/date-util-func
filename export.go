@@ -19,4 +19,5 @@ func exportUpstart(cfg *config, path string) error {
 		fmt.Fprintf(f, "respawn\n")
 		fmt.Fprintf(f, "\n")
 
-		env := ma
+		env := map[string]string{}
+		procfi
