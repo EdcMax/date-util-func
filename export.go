@@ -24,4 +24,4 @@ func exportUpstart(cfg *config, path string) error {
 		if err != nil {
 			return err
 		}
-		b, err :
+		b, err := os.ReadFile(file
