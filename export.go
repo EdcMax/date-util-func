@@ -23,3 +23,5 @@ func exportUpstart(cfg *config, path string) error {
 		procfile, err := filepath.Abs(cfg.Procfile)
 		if err != nil {
 			return err
+		}
+		b, err :
