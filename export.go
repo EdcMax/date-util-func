@@ -24,4 +24,4 @@ func exportUpstart(cfg *config, path string) error {
 		if err != nil {
 			return err
 		}
-		b, err := os.ReadFile(file
+		b, err := os.ReadFile(filepath.Join(filepath.Dir
