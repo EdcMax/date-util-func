@@ -26,4 +26,5 @@ func exportUpstart(cfg *config, path string) error {
 		}
 		b, err := os.ReadFile(filepath.Join(filepath.Dir(procfile), ".env"))
 		if err == nil {
-			for _, line := range strings.Split(string(b), "\n")
+			for _, line := range strings.Split(string(b), "\n") {
+				token := strings.S
