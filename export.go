@@ -29,4 +29,6 @@ func exportUpstart(cfg *config, path string) error {
 			for _, line := range strings.Split(string(b), "\n") {
 				token := strings.SplitN(line, "=", 2)
 				if len(token) != 2 {
-					continu
+					continue
+				}
+				if 
