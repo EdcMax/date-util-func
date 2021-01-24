@@ -31,4 +31,4 @@ func exportUpstart(cfg *config, path string) error {
 				if len(token) != 2 {
 					continue
 				}
-				if 
+				if strings.HasPrefix(
