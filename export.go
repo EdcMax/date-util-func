@@ -32,4 +32,4 @@ func exportUpstart(cfg *config, path string) error {
 					continue
 				}
 				if strings.HasPrefix(token[0], "export ") {
-	
+					token[0] = toke
