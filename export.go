@@ -34,4 +34,4 @@ func exportUpstart(cfg *config, path string) error {
 				if strings.HasPrefix(token[0], "export ") {
 					token[0] = token[0][7:]
 				}
-				token[0] = st
+				token[0] = strings.TrimSpace(token[0
