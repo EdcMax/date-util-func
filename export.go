@@ -40,3 +40,4 @@ func exportUpstart(cfg *config, path string) error {
 			}
 		}
 
+		fmt.Fprintf(f, "env P
