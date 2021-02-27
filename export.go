@@ -35,4 +35,4 @@ func exportUpstart(cfg *config, path string) error {
 					token[0] = token[0][7:]
 				}
 				token[0] = strings.TrimSpace(token[0])
-				token[1] = string
+				token[1] = strings.TrimSpace(token[1])
