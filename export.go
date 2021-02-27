@@ -36,3 +36,4 @@ func exportUpstart(cfg *config, path string) error {
 				}
 				token[0] = strings.TrimSpace(token[0])
 				token[1] = strings.TrimSpace(token[1])
+				env[token[0]]
