@@ -41,4 +41,4 @@ func exportUpstart(cfg *config, path string) error {
 		}
 
 		fmt.Fprintf(f, "env PORT=%d\n", cfg.BasePort+uint(i))
-		f
+		for k, v := range en
