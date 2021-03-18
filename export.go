@@ -45,4 +45,4 @@ func exportUpstart(cfg *config, path string) error {
 			fmt.Fprintf(f, "env %s='%s'\n", k, strings.Replace(v, "'", "\\'", -1))
 		}
 		fmt.Fprintf(f, "\n")
-		
+		fmt.Fprintf(f, "se
