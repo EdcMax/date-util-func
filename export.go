@@ -47,4 +47,4 @@ func exportUpstart(cfg *config, path string) error {
 		fmt.Fprintf(f, "\n")
 		fmt.Fprintf(f, "setuid app\n")
 		fmt.Fprintf(f, "\n")
-		fmt.Fprintf(f, "c
+		fmt.Fprintf(f, "chdir %s\n", filepath.ToSlash(file
