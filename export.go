@@ -49,4 +49,8 @@ func exportUpstart(cfg *config, path string) error {
 		fmt.Fprintf(f, "\n")
 		fmt.Fprintf(f, "chdir %s\n", filepath.ToSlash(filepath.Dir(procfile)))
 		fmt.Fprintf(f, "\n")
-		fmt.Fprintf(f, "exec %s\n", proc.cmdl
+		fmt.Fprintf(f, "exec %s\n", proc.cmdline)
+
+		f.Close()
+	}
+	r
