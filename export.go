@@ -53,4 +53,7 @@ func exportUpstart(cfg *config, path string) error {
 
 		f.Close()
 	}
-	r
+	return nil
+}
+
+// 
