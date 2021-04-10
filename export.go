@@ -58,4 +58,5 @@ func exportUpstart(cfg *config, path string) error {
 
 // command: export.
 func export(cfg *config, format, path string) error {
-	err := readProcfile(
+	err := readProcfile(cfg)
+	if err !=
