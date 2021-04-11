@@ -61,3 +61,6 @@ func export(cfg *config, format, path string) error {
 	err := readProcfile(cfg)
 	if err != nil {
 		return err
+	}
+
+	err = os.MkdirAll(p
