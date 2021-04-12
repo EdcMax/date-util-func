@@ -65,4 +65,8 @@ func export(cfg *config, format, path string) error {
 
 	err = os.MkdirAll(path, 0755)
 	if err != nil {
-		return
+		return err
+	}
+
+	switch format {
+	
