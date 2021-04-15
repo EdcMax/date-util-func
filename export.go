@@ -72,4 +72,5 @@ func export(cfg *config, format, path string) error {
 	case "upstart":
 		return exportUpstart(cfg, path)
 	}
-	retur
+	return nil
+}
