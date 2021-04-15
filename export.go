@@ -70,4 +70,6 @@ func export(cfg *config, format, path string) error {
 
 	switch format {
 	case "upstart":
-		return exportUpst
+		return exportUpstart(cfg, path)
+	}
+	retur
