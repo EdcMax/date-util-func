@@ -42,3 +42,21 @@ func TestMain(m *testing.M) {
 		defer os.Setenv("PATH", oldpath)
 	}
 	r := m.Run()
+
+	if dir != "" {
+		os.RemoveAll(dir)
+	}
+	os.Exit(r)
+}
+
+func startGoreman(ctx context.Context, t *testing.T, ch <-chan os.Signal, file []byte) error {
+	t.Helper()
+	f, err := os.CreateTemp("", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if _, err := f.Write(file); err != nil {
+		t.Fatal(err)
+	}
+	cfg := &config{
+		ExitOnError: true,
