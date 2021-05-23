@@ -82,3 +82,21 @@ web4: sleep 0.1
 
 func TestGoremanSignal(t *testing.T) {
 	var file = []byte(`
+web1: sleep 10
+web2: sleep 10
+web3: sleep 10
+web4: sleep 10
+`)
+	now := time.Now()
+	sc := make(chan os.Signal, 1)
+	go func() {
+		time.Sleep(100 * time.Millisecond)
+		sc <- os.Interrupt
+	}()
+	if err := startGoreman(context.TODO(), t, sc, file); err != nil {
+		t.Fatal(err)
+	}
+	if dur := time.Since(now); dur > 500*time.Millisecond {
+		t.Errorf("test took too much time; should have canceled after about 10ms, got %s", dur)
+	}
+}
