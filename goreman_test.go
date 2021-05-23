@@ -100,3 +100,22 @@ web4: sleep 10
 		t.Errorf("test took too much time; should have canceled after about 10ms, got %s", dur)
 	}
 }
+
+func TestGoremanExitsOnError(t *testing.T) {
+	var file = []byte(`
+web1: sleep 10
+web2: sleep 0.01 && foobarbangbazunknownproc
+web3: sleep 10
+web4: sleep 10
+`)
+	now := time.Now()
+	// process 2 should exit which should trigger exit of entire program.
+	if err := startGoreman(context.TODO(), t, nil, file); err == nil {
+		t.Fatal("got nil err, should have received error")
+	}
+	if dur := time.Since(now); dur > time.Second {
+		t.Errorf("test took too much time; should have canceled after 1s, got %s", dur)
+	}
+}
+
+func TestGoremanExitsOnErrorOtherWay(t *testing.T) {
