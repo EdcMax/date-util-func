@@ -60,3 +60,25 @@ func startGoreman(ctx context.Context, t *testing.T, ch <-chan os.Signal, file [
 	}
 	cfg := &config{
 		ExitOnError: true,
+		Procfile:    f.Name(),
+	}
+	if ch == nil {
+		ch = notifyCh()
+	}
+	return start(ctx, ch, cfg)
+}
+
+func TestGoreman(t *testing.T) {
+	var file = []byte(`
+web1: sleep 0.1
+web2: sleep 0.1
+web3: sleep 0.1
+web4: sleep 0.1
+`)
+	if err := startGoreman(context.TODO(), t, nil, file); err != nil {
+		t.Fatal(err)
+	}
+}
+
+func TestGoremanSignal(t *testing.T) {
+	var file = []byte(`
