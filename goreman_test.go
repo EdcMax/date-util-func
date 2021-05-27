@@ -140,3 +140,23 @@ func TestGoremanStopProcDoesntStopOtherProcs(t *testing.T) {
 web1: sleep 10
 web2: sleep 10
 web3: sleep 10
+web4: sleep 10
+`)
+	goremanStopped := make(chan struct{}, 1)
+	sc := make(chan os.Signal, 1)
+	go func() {
+		startGoreman(context.TODO(), t, sc, file)
+		goremanStopped <- struct{}{}
+	}()
+	for {
+		mu.Lock()
+		isEmpty := procs == nil
+		mu.Unlock()
+		if isEmpty {
+			time.Sleep(5 * time.Millisecond)
+			continue
+		}
+		proc := findProc("web2")
+		if proc == nil {
+			time.Sleep(5 * time.Millisecond)
+			continue
