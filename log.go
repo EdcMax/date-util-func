@@ -31,3 +31,19 @@ var colors = []int{
 var mutex = new(sync.Mutex)
 
 var out = colorable.NewColorableStdout()
+
+type buffers [][]byte
+
+func (v *buffers) consume(n int64) {
+	for len(*v) > 0 {
+		ln0 := int64(len((*v)[0]))
+		if ln0 > n {
+			(*v)[0] = (*v)[0][n:]
+			return
+		}
+		n -= ln0
+		*v = (*v)[1:]
+	}
+}
+
+func (v *buffers) WriteTo(w io.Writer) (n int64, err error) {
