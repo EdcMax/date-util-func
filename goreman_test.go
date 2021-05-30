@@ -176,3 +176,9 @@ web4: sleep 10
 		break
 	}
 	select {
+	case <-goremanStopped:
+		t.Errorf("stopping web2 subprocess should not have stopped supervisor")
+	case <-time.After(30 * time.Millisecond):
+	}
+	sc <- os.Interrupt
+}
