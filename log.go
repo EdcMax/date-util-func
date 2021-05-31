@@ -47,3 +47,28 @@ func (v *buffers) consume(n int64) {
 }
 
 func (v *buffers) WriteTo(w io.Writer) (n int64, err error) {
+	for _, b := range *v {
+		nb, err := w.Write(b)
+		n += int64(nb)
+		if err != nil {
+			v.consume(n)
+			return n, err
+		}
+	}
+	v.consume(n)
+	return n, nil
+}
+
+// write any stored buffers, plus the given line, then empty out
+// the buffers.
+func (l *clogger) writeBuffers(line []byte) {
+	mutex.Lock()
+	fmt.Fprintf(out, "\x1b[%dm", colors[l.idx])
+	if *logTime {
+		now := time.Now().Format("15:04:05")
+		fmt.Fprintf(out, "%s %*s | ", now, maxProcNameLength, l.name)
+	} else {
+		fmt.Fprintf(out, "%*s | ", maxProcNameLength, l.name)
+	}
+	fmt.Fprintf(out, "\x1b[m")
+	l.buffers = append(l.buffers, line)
