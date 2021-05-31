@@ -72,3 +72,25 @@ func (l *clogger) writeBuffers(line []byte) {
 	}
 	fmt.Fprintf(out, "\x1b[m")
 	l.buffers = append(l.buffers, line)
+	l.buffers.WriteTo(out)
+	l.buffers = l.buffers[0:0]
+	mutex.Unlock()
+}
+
+// bundle writes into lines, waiting briefly for completion of lines
+func (l *clogger) writeLines() {
+	var tick <-chan time.Time
+	for {
+		select {
+		case w, ok := <-l.writes:
+			if !ok {
+				if len(l.buffers) > 0 {
+					l.writeBuffers([]byte("\n"))
+				}
+				return
+			}
+			buf := bytes.NewBuffer(w)
+			for {
+				line, err := buf.ReadBytes('\n')
+				if len(line) > 0 {
+					if line[len(line)-1] == '\n' {
