@@ -94,3 +94,27 @@ func (l *clogger) writeLines() {
 				line, err := buf.ReadBytes('\n')
 				if len(line) > 0 {
 					if line[len(line)-1] == '\n' {
+						// any text followed by a newline should flush
+						// existing buffers. a bare newline should flush
+						// existing buffers, but only if there are any.
+						if len(line) != 1 || len(l.buffers) > 0 {
+							l.writeBuffers(line)
+						}
+						tick = nil
+					} else {
+						l.buffers = append(l.buffers, line)
+						tick = time.After(l.timeout)
+					}
+				}
+				if err != nil {
+					break
+				}
+			}
+			l.done <- struct{}{}
+		case <-tick:
+			if len(l.buffers) > 0 {
+				l.writeBuffers([]byte("\n"))
+			}
+			tick = nil
+		}
+	}
