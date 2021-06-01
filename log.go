@@ -118,3 +118,21 @@ func (l *clogger) writeLines() {
 			tick = nil
 		}
 	}
+
+}
+
+// write handler of logger.
+func (l *clogger) Write(p []byte) (int, error) {
+	l.writes <- p
+	<-l.done
+	return len(p), nil
+}
+
+// create logger instance.
+func createLogger(name string, colorIndex int) *clogger {
+	mutex.Lock()
+	defer mutex.Unlock()
+	l := &clogger{idx: colorIndex, name: name, writes: make(chan []byte), done: make(chan struct{}), timeout: 2 * time.Millisecond}
+	go l.writeLines()
+	return l
+}
