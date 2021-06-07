@@ -66,3 +66,21 @@ type procInfo struct {
 
 	mu      sync.Mutex
 	cond    *sync.Cond
+	waitErr error
+}
+
+var mu sync.Mutex
+
+// process informations named with proc.
+var procs []*procInfo
+
+// filename of Procfile.
+var procfile = flag.String("f", "Procfile", "proc file")
+
+// rpc port number.
+var port = flag.Uint("p", defaultPort(), "port")
+
+var startRPCServer = flag.Bool("rpc-server", true, "Start an RPC server listening on "+defaultAddr())
+
+// base directory
+var basedir = flag.String("basedir", "", "base directory")
