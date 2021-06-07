@@ -42,3 +42,27 @@ func usage() {
                                        restart-all
                                        list
                                        status
+  goreman start [PROCESS]            # Start the application
+  goreman version                    # Display Goreman version
+
+Options:
+`)
+	flag.PrintDefaults()
+	os.Exit(0)
+}
+
+// -- process information structure.
+type procInfo struct {
+	name       string
+	cmdline    string
+	cmd        *exec.Cmd
+	port       uint
+	setPort    bool
+	colorIndex int
+
+	// True if we called stopProc to kill the process, in which case an
+	// *os.ExitError is not the fault of the subprocess
+	stoppedBySupervisor bool
+
+	mu      sync.Mutex
+	cond    *sync.Cond
