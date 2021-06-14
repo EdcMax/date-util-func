@@ -105,3 +105,21 @@ var re = regexp.MustCompile(`\$([a-zA-Z]+[a-zA-Z0-9_]+)`)
 
 type config struct {
 	Procfile string `yaml:"procfile"`
+	// Port for RPC server
+	Port     uint   `yaml:"port"`
+	BaseDir  string `yaml:"basedir"`
+	BasePort uint   `yaml:"baseport"`
+	Args     []string
+	// If true, exit the supervisor process if a subprocess exits with an error.
+	ExitOnError bool `yaml:"exit_on_error"`
+}
+
+func readConfig() *config {
+	var cfg config
+
+	flag.Parse()
+	if flag.NArg() == 0 {
+		usage()
+	}
+
+	cfg.Procfile = *procfile
