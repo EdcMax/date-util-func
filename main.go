@@ -144,3 +144,21 @@ func readProcfile(cfg *config) error {
 	}
 	mu.Lock()
 	defer mu.Unlock()
+
+	procs = []*procInfo{}
+	index := 0
+	for _, line := range strings.Split(string(content), "\n") {
+		tokens := strings.SplitN(line, ":", 2)
+		if len(tokens) != 2 || tokens[0][0] == '#' {
+			continue
+		}
+		k, v := strings.TrimSpace(tokens[0]), strings.TrimSpace(tokens[1])
+		if runtime.GOOS == "windows" {
+			v = re.ReplaceAllStringFunc(v, func(s string) string {
+				return "%" + s[1:] + "%"
+			})
+		}
+		proc := &procInfo{name: k, cmdline: v, colorIndex: index}
+		if *setPorts {
+			proc.setPort = true
+			proc.port = cfg.BasePort
