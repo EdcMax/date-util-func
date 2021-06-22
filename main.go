@@ -123,3 +123,24 @@ func readConfig() *config {
 	}
 
 	cfg.Procfile = *procfile
+	cfg.Port = *port
+	cfg.BaseDir = *basedir
+	cfg.BasePort = *baseport
+	cfg.ExitOnError = *exitOnError
+	cfg.Args = flag.Args()
+
+	b, err := os.ReadFile(".goreman")
+	if err == nil {
+		yaml.Unmarshal(b, &cfg)
+	}
+	return &cfg
+}
+
+// read Procfile and parse it.
+func readProcfile(cfg *config) error {
+	content, err := os.ReadFile(cfg.Procfile)
+	if err != nil {
+		return err
+	}
+	mu.Lock()
+	defer mu.Unlock()
