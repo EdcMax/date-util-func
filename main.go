@@ -162,3 +162,24 @@ func readProcfile(cfg *config) error {
 		if *setPorts {
 			proc.setPort = true
 			proc.port = cfg.BasePort
+			cfg.BasePort += 100
+		}
+		proc.cond = sync.NewCond(&proc.mu)
+		procs = append(procs, proc)
+		if len(k) > maxProcNameLength {
+			maxProcNameLength = len(k)
+		}
+		index = (index + 1) % len(colors)
+	}
+	if len(procs) == 0 {
+		return errors.New("no valid entry")
+	}
+	return nil
+}
+
+func defaultServer(serverPort uint) string {
+	if s, ok := os.LookupEnv("GOREMAN_RPC_SERVER"); ok {
+		return s
+	}
+	return fmt.Sprintf("127.0.0.1:%d", defaultPort())
+}
