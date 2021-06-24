@@ -183,3 +183,21 @@ func defaultServer(serverPort uint) string {
 	}
 	return fmt.Sprintf("127.0.0.1:%d", defaultPort())
 }
+
+func defaultAddr() string {
+	if s, ok := os.LookupEnv("GOREMAN_RPC_ADDR"); ok {
+		return s
+	}
+	return "0.0.0.0"
+}
+
+// default port
+func defaultPort() uint {
+	s := os.Getenv("GOREMAN_RPC_PORT")
+	if s != "" {
+		i, err := strconv.Atoi(s)
+		if err == nil {
+			return uint(i)
+		}
+	}
+	return 8555
