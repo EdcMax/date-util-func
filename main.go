@@ -201,3 +201,28 @@ func defaultPort() uint {
 		}
 	}
 	return 8555
+}
+
+// command: check. show Procfile entries.
+func check(cfg *config) error {
+	err := readProcfile(cfg)
+	if err != nil {
+		return err
+	}
+
+	mu.Lock()
+	defer mu.Unlock()
+
+	keys := make([]string, len(procs))
+	i := 0
+	for _, proc := range procs {
+		keys[i] = proc.name
+		i++
+	}
+	sort.Strings(keys)
+	fmt.Printf("valid procfile detected (%s)\n", strings.Join(keys, ", "))
+	return nil
+}
+
+func findProc(name string) *procInfo {
+	mu.Lock()
