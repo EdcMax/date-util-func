@@ -247,3 +247,26 @@ func start(ctx context.Context, sig <-chan os.Signal, cfg *config) error {
 	// Cancel the RPC server when procs have returned/errored, cancel the
 	// context anyway in case of early return.
 	defer cancel()
+	if len(cfg.Args) > 1 {
+		tmp := make([]*procInfo, 0, len(cfg.Args[1:]))
+		maxProcNameLength = 0
+		for _, v := range cfg.Args[1:] {
+			proc := findProc(v)
+			if proc == nil {
+				return errors.New("unknown proc: " + v)
+			}
+			tmp = append(tmp, proc)
+			if len(v) > maxProcNameLength {
+				maxProcNameLength = len(v)
+			}
+		}
+		mu.Lock()
+		procs = tmp
+		mu.Unlock()
+	}
+	godotenv.Load()
+	rpcChan := make(chan *rpcMessage, 10)
+	if *startRPCServer {
+		go startServer(ctx, rpcChan, cfg.Port)
+	}
+	procsErr := startProcs(sig, rpcChan, cfg.ExitOnError)
