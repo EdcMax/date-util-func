@@ -270,3 +270,37 @@ func start(ctx context.Context, sig <-chan os.Signal, cfg *config) error {
 		go startServer(ctx, rpcChan, cfg.Port)
 	}
 	procsErr := startProcs(sig, rpcChan, cfg.ExitOnError)
+	return procsErr
+}
+
+func showVersion() {
+	fmt.Fprintf(os.Stdout, "%s\n", version)
+	os.Exit(0)
+}
+
+func main() {
+	var err error
+	cfg := readConfig()
+
+	if cfg.BaseDir != "" {
+		err = os.Chdir(cfg.BaseDir)
+		if err != nil {
+			fmt.Fprintf(os.Stderr, "goreman: %s\n", err.Error())
+			os.Exit(1)
+		}
+	}
+
+	cmd := cfg.Args[0]
+	switch cmd {
+	case "check":
+		err = check(cfg)
+	case "help":
+		usage()
+	case "run":
+		if len(cfg.Args) >= 2 {
+			cmd, args := cfg.Args[1], cfg.Args[2:]
+			err = run(cmd, args, cfg.Port)
+		} else {
+			usage()
+		}
+	case "export":
