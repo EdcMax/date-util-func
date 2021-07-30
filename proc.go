@@ -32,3 +32,31 @@ func spawnProc(name string, errCh chan<- error) {
 		default:
 		}
 		fmt.Fprintf(logger, "Failed to start %s: %s\n", name, err)
+		return
+	}
+	proc.cmd = cmd
+	proc.stoppedBySupervisor = false
+	proc.mu.Unlock()
+	err := cmd.Wait()
+	proc.mu.Lock()
+	proc.cond.Broadcast()
+	if err != nil && !proc.stoppedBySupervisor {
+		select {
+		case errCh <- err:
+		default:
+		}
+	}
+	proc.waitErr = err
+	proc.cmd = nil
+	fmt.Fprintf(logger, "Terminating %s\n", name)
+}
+
+// Stop the specified proc, issuing os.Kill if it does not terminate within 10
+// seconds. If signal is nil, os.Interrupt is used.
+func stopProc(name string, signal os.Signal) error {
+	if signal == nil {
+		signal = os.Interrupt
+	}
+	proc := findProc(name)
+	if proc == nil {
+		return errors.New("unknown proc: " + name)
