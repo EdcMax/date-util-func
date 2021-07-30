@@ -304,3 +304,23 @@ func main() {
 			usage()
 		}
 	case "export":
+		if len(cfg.Args) == 3 {
+			format, path := cfg.Args[1], cfg.Args[2]
+			err = export(cfg, format, path)
+		} else {
+			usage()
+		}
+	case "start":
+		c := notifyCh()
+		err = start(context.Background(), c, cfg)
+	case "version":
+		showVersion()
+	default:
+		usage()
+	}
+
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "%s: %v\n", os.Args[0], err.Error())
+		os.Exit(1)
+	}
+}
