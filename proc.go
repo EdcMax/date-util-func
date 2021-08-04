@@ -60,3 +60,25 @@ func stopProc(name string, signal os.Signal) error {
 	proc := findProc(name)
 	if proc == nil {
 		return errors.New("unknown proc: " + name)
+	}
+
+	proc.mu.Lock()
+	defer proc.mu.Unlock()
+
+	if proc.cmd == nil {
+		return nil
+	}
+	proc.stoppedBySupervisor = true
+
+	err := terminateProc(proc, signal)
+	if err != nil {
+		return err
+	}
+
+	timeout := time.AfterFunc(10*time.Second, func() {
+		proc.mu.Lock()
+		defer proc.mu.Unlock()
+		if proc.cmd != nil {
+			err = killProc(proc.cmd.Process)
+		}
+	})
