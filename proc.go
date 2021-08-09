@@ -82,3 +82,23 @@ func stopProc(name string, signal os.Signal) error {
 			err = killProc(proc.cmd.Process)
 		}
 	})
+	proc.cond.Wait()
+	timeout.Stop()
+	return err
+}
+
+// start specified proc. if proc is started already, return nil.
+func startProc(name string, wg *sync.WaitGroup, errCh chan<- error) error {
+	proc := findProc(name)
+	if proc == nil {
+		return errors.New("unknown name: " + name)
+	}
+
+	proc.mu.Lock()
+	if proc.cmd != nil {
+		proc.mu.Unlock()
+		return nil
+	}
+
+	if wg != nil {
+		wg.Add(1)
