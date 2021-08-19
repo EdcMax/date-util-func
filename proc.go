@@ -102,3 +102,20 @@ func startProc(name string, wg *sync.WaitGroup, errCh chan<- error) error {
 
 	if wg != nil {
 		wg.Add(1)
+	}
+	go func() {
+		spawnProc(name, errCh)
+		if wg != nil {
+			wg.Done()
+		}
+		proc.mu.Unlock()
+	}()
+	return nil
+}
+
+// restart specified proc.
+func restartProc(name string) error {
+	err := stopProc(name, nil)
+	if err != nil {
+		return err
+	}
