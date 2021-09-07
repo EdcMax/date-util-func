@@ -119,3 +119,30 @@ func restartProc(name string) error {
 	if err != nil {
 		return err
 	}
+	return startProc(name, nil, nil)
+}
+
+// stopProcs attempts to stop every running process and returns any non-nil
+// error, if one exists. stopProcs will wait until all procs have had an
+// opportunity to stop.
+func stopProcs(sig os.Signal) error {
+	var err error
+	for _, proc := range procs {
+		stopErr := stopProc(proc.name, sig)
+		if stopErr != nil {
+			err = stopErr
+		}
+	}
+	return err
+}
+
+// spawn all procs.
+func startProcs(sc <-chan os.Signal, rpcCh <-chan *rpcMessage, exitOnError bool) error {
+	var wg sync.WaitGroup
+	errCh := make(chan error, 1)
+
+	for _, proc := range procs {
+		startProc(proc.name, &wg, errCh)
+	}
+
+	allProcsDone := make(chan struct{}, 1)
