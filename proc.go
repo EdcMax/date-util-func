@@ -146,3 +146,30 @@ func startProcs(sc <-chan os.Signal, rpcCh <-chan *rpcMessage, exitOnError bool)
 	}
 
 	allProcsDone := make(chan struct{}, 1)
+	if *exitOnStop {
+		go func() {
+			wg.Wait()
+			allProcsDone <- struct{}{}
+		}()
+	}
+	for {
+		select {
+		case rpcMsg := <-rpcCh:
+			switch rpcMsg.Msg {
+			// TODO: add more events here.
+			case "stop":
+				for _, proc := range rpcMsg.Args {
+					if err := stopProc(proc, nil); err != nil {
+						rpcMsg.ErrCh <- err
+						break
+					}
+				}
+				close(rpcMsg.ErrCh)
+			default:
+				panic("unimplemented rpc message type " + rpcMsg.Msg)
+			}
+		case err := <-errCh:
+			if exitOnError {
+				stopProcs(os.Interrupt)
+				return err
+			}
