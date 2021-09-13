@@ -173,3 +173,10 @@ func startProcs(sc <-chan os.Signal, rpcCh <-chan *rpcMessage, exitOnError bool)
 				stopProcs(os.Interrupt)
 				return err
 			}
+		case <-allProcsDone:
+			return stopProcs(os.Interrupt)
+		case sig := <-sc:
+			return stopProcs(sig)
+		}
+	}
+}
