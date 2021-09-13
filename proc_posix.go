@@ -36,3 +36,19 @@ func terminateProc(proc *procInfo, signal os.Signal) error {
 	}
 
 	target, err := os.FindProcess(pid)
+	if err != nil {
+		return err
+	}
+	return target.Signal(signal)
+}
+
+// killProc kills the proc with pid pid, as well as its children.
+func killProc(process *os.Process) error {
+	return unix.Kill(-1*process.Pid, unix.SIGKILL)
+}
+
+func notifyCh() <-chan os.Signal {
+	sc := make(chan os.Signal, 10)
+	signal.Notify(sc, sigterm, sigint, sighup)
+	return sc
+}
