@@ -6,3 +6,6 @@ import (
 	"syscall"
 
 	"golang.org/x/sys/windows"
+)
+
+var cmdStart = []st
