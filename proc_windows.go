@@ -8,4 +8,5 @@ import (
 	"golang.org/x/sys/windows"
 )
 
-var cmdStart = []st
+var cmdStart = []string{"cmd", "/c"}
+var proc
