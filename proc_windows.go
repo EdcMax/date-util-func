@@ -10,4 +10,4 @@ import (
 
 var cmdStart = []string{"cmd", "/c"}
 var procAttrs = &windows.SysProcAttr{
-	CreationFlags: windows.C
+	CreationFlags: windows.CREATE_UNICODE_ENVIR
