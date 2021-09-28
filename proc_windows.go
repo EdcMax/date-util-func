@@ -9,4 +9,5 @@ import (
 )
 
 var cmdStart = []string{"cmd", "/c"}
-var procAttrs = &windows.SysProcAttr
+var procAttrs = &windows.SysProcAttr{
+	CreationFlags: windows.C
