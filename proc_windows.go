@@ -10,4 +10,7 @@ import (
 
 var cmdStart = []string{"cmd", "/c"}
 var procAttrs = &windows.SysProcAttr{
-	CreationFlags: windows.CREATE_UNICODE_ENVIRONMENT | windows.CREATE_NEW_PROCES
+	CreationFlags: windows.CREATE_UNICODE_ENVIRONMENT | windows.CREATE_NEW_PROCESS_GROUP,
+}
+
+func termi
