@@ -13,4 +13,4 @@ var procAttrs = &windows.SysProcAttr{
 	CreationFlags: windows.CREATE_UNICODE_ENVIRONMENT | windows.CREATE_NEW_PROCESS_GROUP,
 }
 
-func termi
+func terminateProc(proc
