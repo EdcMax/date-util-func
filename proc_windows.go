@@ -14,3 +14,4 @@ var procAttrs = &windows.SysProcAttr{
 }
 
 func terminateProc(proc *procInfo, _ os.Signal) error {
+	dll, err := windows.L
