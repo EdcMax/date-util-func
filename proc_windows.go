@@ -13,4 +13,4 @@ var procAttrs = &windows.SysProcAttr{
 	CreationFlags: windows.CREATE_UNICODE_ENVIRONMENT | windows.CREATE_NEW_PROCESS_GROUP,
 }
 
-func terminateProc(proc *procInfo, _ o
+func terminateProc(proc *procInfo, _ os.Signal) error {
