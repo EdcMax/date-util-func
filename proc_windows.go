@@ -16,4 +16,6 @@ var procAttrs = &windows.SysProcAttr{
 func terminateProc(proc *procInfo, _ os.Signal) error {
 	dll, err := windows.LoadDLL("kernel32.dll")
 	if err != nil {
-		return 
+		return err
+	}
+	defer dll.R
