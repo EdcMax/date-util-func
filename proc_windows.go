@@ -18,4 +18,6 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 	if err != nil {
 		return err
 	}
-	defer dll.R
+	defer dll.Release()
+
+	pid :=
