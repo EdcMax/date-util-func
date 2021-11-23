@@ -22,4 +22,4 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 
 	pid := proc.cmd.Process.Pid
 
-	f, err
+	f, err := dll.FindProc("Atta
