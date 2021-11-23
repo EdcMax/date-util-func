@@ -20,4 +20,6 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 	}
 	defer dll.Release()
 
-	pid :=
+	pid := proc.cmd.Process.Pid
+
+	f, err
