@@ -24,4 +24,6 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 
 	f, err := dll.FindProc("AttachConsole")
 	if err != nil {
-		return
+		return err
+	}
+	r1,
