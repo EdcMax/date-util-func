@@ -27,4 +27,4 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 		return err
 	}
 	r1, _, err := f.Call(uintptr(pid))
-	if r1 == 
+	if r1 == 0 && err != syscall.ERRO
