@@ -28,3 +28,5 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 	}
 	r1, _, err := f.Call(uintptr(pid))
 	if r1 == 0 && err != syscall.ERROR_ACCESS_DENIED {
+		return err
+	}
