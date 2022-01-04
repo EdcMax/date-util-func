@@ -31,4 +31,5 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 		return err
 	}
 
-	f, err = dll.FindProc("SetCon
+	f, err = dll.FindProc("SetConsoleCtrlHandler")
+	if
