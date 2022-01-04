@@ -37,3 +37,6 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 	}
 	r1, _, err = f.Call(0, 1)
 	if r1 == 0 {
+		return err
+	}
+	f, err = d
