@@ -30,3 +30,5 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 	if r1 == 0 && err != syscall.ERROR_ACCESS_DENIED {
 		return err
 	}
+
+	f, err = dll.Fin
