@@ -40,4 +40,5 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 		return err
 	}
 	f, err = dll.FindProc("GenerateConsoleCtrlEvent")
-	if
+	if err != nil {
+		re
