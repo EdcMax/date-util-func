@@ -43,4 +43,4 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 	if err != nil {
 		return err
 	}
-	r
+	r1, _, err = f.Call(win
