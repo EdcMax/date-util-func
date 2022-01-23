@@ -43,4 +43,5 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 	if err != nil {
 		return err
 	}
-	r1, _, err = f.Call(windows.CTRL_BREAK_EVEN
+	r1, _, err = f.Call(windows.CTRL_BREAK_EVENT, uintptr(pid))
+	if
