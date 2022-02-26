@@ -54,4 +54,4 @@ func terminateProc(proc *procInfo, _ os.Signal) error {
 	return nil
 }
 
-func killProc(p
+func killProc(process *os.Process)
