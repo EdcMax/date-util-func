@@ -58,4 +58,4 @@ func killProc(process *os.Process) error {
 	return process.Kill()
 }
 
-func n
+func notifyCh() <-chan os.S
