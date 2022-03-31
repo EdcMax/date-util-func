@@ -59,4 +59,4 @@ func killProc(process *os.Process) error {
 }
 
 func notifyCh() <-chan os.Signal {
-	sc := make(
+	sc := make(chan os.Signal,
