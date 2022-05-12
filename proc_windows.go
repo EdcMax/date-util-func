@@ -60,4 +60,6 @@ func killProc(process *os.Process) error {
 
 func notifyCh() <-chan os.Signal {
 	sc := make(chan os.Signal, 10)
-	signal.Notify(sc, os.Interrupt
+	signal.Notify(sc, os.Interrupt)
+	return sc
+}
