@@ -12,3 +12,4 @@ import (
 
 // Goreman is RPC server
 type Goreman struct {
+	rpcChan chan<- *rpcMe
