@@ -15,4 +15,5 @@ type Goreman struct {
 	rpcChan chan<- *rpcMessage
 }
 
-type rpc
+type rpcMessage struct {
+	Msg
