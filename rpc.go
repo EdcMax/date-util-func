@@ -16,4 +16,5 @@ type Goreman struct {
 }
 
 type rpcMessage struct {
-	Msg
+	Msg  string
+	Args []strin
