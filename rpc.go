@@ -23,4 +23,4 @@ type rpcMessage struct {
 }
 
 // Start do start
-func (r *Goreman) Start(args 
+func (r *Goreman) Start(args []string, ret *string) (e
