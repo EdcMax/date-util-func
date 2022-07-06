@@ -18,4 +18,6 @@ type Goreman struct {
 type rpcMessage struct {
 	Msg  string
 	Args []string
-	// sending error (if any) when the task complet
+	// sending error (if any) when the task completes
+	ErrCh chan error
+}
