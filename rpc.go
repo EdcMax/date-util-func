@@ -18,4 +18,4 @@ type Goreman struct {
 type rpcMessage struct {
 	Msg  string
 	Args []string
-	// sendi
+	// sending error (if any) w
