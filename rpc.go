@@ -24,4 +24,5 @@ type rpcMessage struct {
 
 // Start do start
 func (r *Goreman) Start(args []string, ret *string) (err error) {
-	defer
+	defer func() {
+		if r := recov
