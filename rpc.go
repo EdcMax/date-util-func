@@ -28,4 +28,5 @@ func (r *Goreman) Start(args []string, ret *string) (err error) {
 		if r := recover(); r != nil {
 			err = r.(error)
 		}
-	}
+	}()
+	for _, arg := ra
