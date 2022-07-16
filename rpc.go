@@ -29,4 +29,5 @@ func (r *Goreman) Start(args []string, ret *string) (err error) {
 			err = r.(error)
 		}
 	}()
-	for _, arg := ra
+	for _, arg := range args {
+		if err = startPro
