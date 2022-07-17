@@ -30,4 +30,4 @@ func (r *Goreman) Start(args []string, ret *string) (err error) {
 		}
 	}()
 	for _, arg := range args {
-		if err = startPro
+		if err = startProc(arg, nil, nil); err
