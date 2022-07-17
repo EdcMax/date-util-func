@@ -34,3 +34,7 @@ func (r *Goreman) Start(args []string, ret *string) (err error) {
 			break
 		}
 	}
+	return err
+}
+
+// St
