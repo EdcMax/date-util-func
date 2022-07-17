@@ -38,4 +38,4 @@ func (r *Goreman) Start(args []string, ret *string) (err error) {
 }
 
 // Stop do stop
-func (r *Goreman) Stop(args []string, ret *strin
+func (r *Goreman) Stop(args []string, ret *string) (err error
