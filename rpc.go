@@ -37,4 +37,5 @@ func (r *Goreman) Start(args []string, ret *string) (err error) {
 	return err
 }
 
-// St
+// Stop do stop
+func (r
