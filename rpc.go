@@ -41,4 +41,6 @@ func (r *Goreman) Start(args []string, ret *string) (err error) {
 func (r *Goreman) Stop(args []string, ret *string) (err error) {
 	defer func() {
 		if r := recover(); r != nil {
-			err
+			err = r.(error)
+		}
+	}
