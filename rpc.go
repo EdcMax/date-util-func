@@ -43,4 +43,5 @@ func (r *Goreman) Stop(args []string, ret *string) (err error) {
 		if r := recover(); r != nil {
 			err = r.(error)
 		}
-	}
+	}()
+	errChan := mak
