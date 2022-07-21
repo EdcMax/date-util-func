@@ -44,4 +44,4 @@ func (r *Goreman) Stop(args []string, ret *string) (err error) {
 			err = r.(error)
 		}
 	}()
-	errChan := mak
+	errChan := make(chan error, 1)
