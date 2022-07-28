@@ -54,4 +54,4 @@ func (r *Goreman) Stop(args []string, ret *string) (err error) {
 	return
 }
 
-// 
+// StopAll do stop al
