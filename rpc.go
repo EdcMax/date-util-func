@@ -48,3 +48,4 @@ func (r *Goreman) Stop(args []string, ret *string) (err error) {
 	r.rpcChan <- &rpcMessage{
 		Msg:   "stop",
 		Args:  args,
+		ErrCh: errChan,
