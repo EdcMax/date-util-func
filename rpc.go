@@ -49,3 +49,5 @@ func (r *Goreman) Stop(args []string, ret *string) (err error) {
 		Msg:   "stop",
 		Args:  args,
 		ErrCh: errChan,
+	}
+	err = <-errCh
