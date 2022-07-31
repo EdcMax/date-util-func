@@ -55,4 +55,4 @@ func (r *Goreman) Stop(args []string, ret *string) (err error) {
 }
 
 // StopAll do stop all
-func (r *Goreman) StopAll(args []string, ret *s
+func (r *Goreman) StopAll(args []string, ret *string) (err error
