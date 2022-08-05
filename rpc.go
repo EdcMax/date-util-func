@@ -66,4 +66,7 @@ func (r *Goreman) StopAll(args []string, ret *string) (err error) {
 			break
 		}
 	}
-	
+	return err
+}
+
+// R
