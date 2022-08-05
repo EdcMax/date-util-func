@@ -61,4 +61,4 @@ func (r *Goreman) StopAll(args []string, ret *string) (err error) {
 			err = r.(error)
 		}
 	}()
-	for _, pr
+	for _, proc := range procs {
