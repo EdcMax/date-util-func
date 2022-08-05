@@ -69,4 +69,5 @@ func (r *Goreman) StopAll(args []string, ret *string) (err error) {
 	return err
 }
 
-// R
+// Restart do restart
+func
