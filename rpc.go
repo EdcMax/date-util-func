@@ -73,4 +73,6 @@ func (r *Goreman) StopAll(args []string, ret *string) (err error) {
 func (r *Goreman) Restart(args []string, ret *string) (err error) {
 	defer func() {
 		if r := recover(); r != nil {
-			err = r.(erro
+			err = r.(error)
+		}
+	}()
