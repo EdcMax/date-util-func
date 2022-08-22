@@ -76,3 +76,4 @@ func (r *Goreman) Restart(args []string, ret *string) (err error) {
 			err = r.(error)
 		}
 	}()
+	for _, arg := range args {
