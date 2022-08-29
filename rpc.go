@@ -84,4 +84,5 @@ func (r *Goreman) Restart(args []string, ret *string) (err error) {
 	return err
 }
 
-// RestartAll do restart al
+// RestartAll do restart all
+func (r *Goreman) RestartAl
