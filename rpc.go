@@ -91,4 +91,5 @@ func (r *Goreman) RestartAll(args []string, ret *string) (err error) {
 			err = r.(error)
 		}
 	}()
-	for _, proc := range pro
+	for _, proc := range procs {
+		if err = resta
