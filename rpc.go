@@ -92,4 +92,4 @@ func (r *Goreman) RestartAll(args []string, ret *string) (err error) {
 		}
 	}()
 	for _, proc := range procs {
-		if err = resta
+		if err = restartProc(proc.name); err !=
