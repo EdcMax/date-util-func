@@ -86,4 +86,5 @@ func (r *Goreman) Restart(args []string, ret *string) (err error) {
 
 // RestartAll do restart all
 func (r *Goreman) RestartAll(args []string, ret *string) (err error) {
-	defer fun
+	defer func() {
+		if r := recover(); 
