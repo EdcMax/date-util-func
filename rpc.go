@@ -99,4 +99,5 @@ func (r *Goreman) RestartAll(args []string, ret *string) (err error) {
 	return err
 }
 
-// List 
+// List do list
+func (r *G
