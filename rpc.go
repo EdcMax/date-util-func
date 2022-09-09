@@ -100,4 +100,4 @@ func (r *Goreman) RestartAll(args []string, ret *string) (err error) {
 }
 
 // List do list
-func (r *G
+func (r *Goreman) List(ar
