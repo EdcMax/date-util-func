@@ -102,4 +102,5 @@ func (r *Goreman) RestartAll(args []string, ret *string) (err error) {
 // List do list
 func (r *Goreman) List(args []string, ret *string) (err error) {
 	defer func() {
-		if r := recover(); r != nil 
+		if r := recover(); r != nil {
+			err = r.(erro
