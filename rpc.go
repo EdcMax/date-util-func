@@ -107,4 +107,4 @@ func (r *Goreman) List(args []string, ret *string) (err error) {
 		}
 	}()
 	*ret = ""
-	
+	for _, proc := range proc
