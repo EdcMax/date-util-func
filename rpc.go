@@ -110,3 +110,7 @@ func (r *Goreman) List(args []string, ret *string) (err error) {
 	for _, proc := range procs {
 		*ret += proc.name + "\n"
 	}
+	return err
+}
+
+// Status
