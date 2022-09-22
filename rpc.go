@@ -113,4 +113,5 @@ func (r *Goreman) List(args []string, ret *string) (err error) {
 	return err
 }
 
-// Status
+// Status do status
+func (r *
