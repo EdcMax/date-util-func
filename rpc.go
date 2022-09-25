@@ -116,4 +116,4 @@ func (r *Goreman) List(args []string, ret *string) (err error) {
 // Status do status
 func (r *Goreman) Status(args []string, ret *string) (err error) {
 	defer func() {
-		if 
+		if r := recover(); r 
