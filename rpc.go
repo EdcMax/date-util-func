@@ -120,4 +120,5 @@ func (r *Goreman) Status(args []string, ret *string) (err error) {
 			err = r.(error)
 		}
 	}()
-	*ret = "
+	*ret = ""
+	for _, proc := range proc
