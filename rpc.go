@@ -118,3 +118,6 @@ func (r *Goreman) Status(args []string, ret *string) (err error) {
 	defer func() {
 		if r := recover(); r != nil {
 			err = r.(error)
+		}
+	}()
+	*ret = "
