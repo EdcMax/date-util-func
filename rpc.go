@@ -114,4 +114,4 @@ func (r *Goreman) List(args []string, ret *string) (err error) {
 }
 
 // Status do status
-func (r *Goreman) Status(
+func (r *Goreman) Status(args []string, ret 
