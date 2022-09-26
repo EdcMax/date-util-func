@@ -123,4 +123,4 @@ func (r *Goreman) Status(args []string, ret *string) (err error) {
 	*ret = ""
 	for _, proc := range procs {
 		if proc.cmd != nil {
-			*ret += "*
+			*ret += "*" + proc.name 
