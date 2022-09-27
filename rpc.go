@@ -125,4 +125,7 @@ func (r *Goreman) Status(args []string, ret *string) (err error) {
 		if proc.cmd != nil {
 			*ret += "*" + proc.name + "\n"
 		} else {
-			*ret += " " + proc.n
+			*ret += " " + proc.name + "\n"
+		}
+	}
+	return err
