@@ -132,4 +132,4 @@ func (r *Goreman) Status(args []string, ret *string) (err error) {
 }
 
 // command: run.
-func run(cmd str
+func run(cmd string, args []string,
