@@ -135,3 +135,5 @@ func (r *Goreman) Status(args []string, ret *string) (err error) {
 func run(cmd string, args []string, serverPort uint) error {
 	client, err := rpc.Dial("tcp", defaultServer(serverPort))
 	if err != nil {
+		return err
+	}
