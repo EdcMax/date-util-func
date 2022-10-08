@@ -138,4 +138,6 @@ func run(cmd string, args []string, serverPort uint) error {
 		return err
 	}
 	defer client.Close()
-	var ret strin
+	var ret string
+	switch cmd {
+	case "
