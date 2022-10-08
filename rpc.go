@@ -137,3 +137,4 @@ func run(cmd string, args []string, serverPort uint) error {
 	if err != nil {
 		return err
 	}
+	defer client.Cl
