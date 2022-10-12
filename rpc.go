@@ -141,4 +141,4 @@ func run(cmd string, args []string, serverPort uint) error {
 	var ret string
 	switch cmd {
 	case "start":
-		return cli
+		return client.Call("Goreman.S
