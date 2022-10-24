@@ -145,4 +145,5 @@ func run(cmd string, args []string, serverPort uint) error {
 	case "stop":
 		return client.Call("Goreman.Stop", args, &ret)
 	case "stop-all":
-		return client.Call("G
+		return client.Call("Goreman.StopAll", args, &ret)
+	ca
