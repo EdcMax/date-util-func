@@ -149,4 +149,4 @@ func run(cmd string, args []string, serverPort uint) error {
 	case "restart":
 		return client.Call("Goreman.Restart", args, &ret)
 	case "restart-all":
-		return client.Call("Gorem
+		return client.Call("Goreman.RestartAll", arg
