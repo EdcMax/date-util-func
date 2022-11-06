@@ -155,4 +155,4 @@ func run(cmd string, args []string, serverPort uint) error {
 		fmt.Print(ret)
 		return err
 	case "status":
-		err := client.C
+		err := client.Call("Goreman.Status
