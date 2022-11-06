@@ -153,3 +153,5 @@ func run(cmd string, args []string, serverPort uint) error {
 	case "list":
 		err := client.Call("Goreman.List", args, &ret)
 		fmt.Print(ret)
+		return err
+	case "sta
