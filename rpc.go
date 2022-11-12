@@ -159,4 +159,6 @@ func run(cmd string, args []string, serverPort uint) error {
 		fmt.Print(ret)
 		return err
 	}
-	return errors.New
+	return errors.New("unknown command")
+}
+
