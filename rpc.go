@@ -162,3 +162,4 @@ func run(cmd string, args []string, serverPort uint) error {
 	return errors.New("unknown command")
 }
 
+// start rpc server.
