@@ -163,4 +163,4 @@ func run(cmd string, args []string, serverPort uint) error {
 }
 
 // start rpc server.
-func startServ
+func startServer(ctx context.Cont
