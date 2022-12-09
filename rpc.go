@@ -168,4 +168,4 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 		rpcChan: rpcChan,
 	}
 	rpc.Register(gm)
-	server, er
+	server, err := net.Listen("t
