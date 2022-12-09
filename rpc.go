@@ -167,4 +167,5 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 	gm := &Goreman{
 		rpcChan: rpcChan,
 	}
-	rpc.Regi
+	rpc.Register(gm)
+	server, er
