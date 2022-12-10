@@ -170,4 +170,6 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 	rpc.Register(gm)
 	server, err := net.Listen("tcp", fmt.Sprintf("%s:%d", defaultAddr(), listenPort))
 	if err != nil {
-		ret
+		return err
+	}
+	var wg
