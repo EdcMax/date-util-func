@@ -172,4 +172,5 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 	if err != nil {
 		return err
 	}
-	var wg
+	var wg sync.WaitGroup
+	
