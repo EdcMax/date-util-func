@@ -173,4 +173,5 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 		return err
 	}
 	var wg sync.WaitGroup
-	var accepting
+	var acceptingConns = true
+	for a
