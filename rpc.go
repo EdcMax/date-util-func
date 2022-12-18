@@ -176,4 +176,5 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 	var acceptingConns = true
 	for acceptingConns {
 		conns := make(chan net.Conn, 1)
-		g
+		go func() {
+			conn, err 
