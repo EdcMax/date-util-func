@@ -178,4 +178,6 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 		conns := make(chan net.Conn, 1)
 		go func() {
 			conn, err := server.Accept()
-			if err != nil
+			if err != nil {
+				return
+			
