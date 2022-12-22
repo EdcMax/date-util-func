@@ -180,4 +180,6 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 			conn, err := server.Accept()
 			if err != nil {
 				return
-			
+			}
+			conns <- conn
+		}()
