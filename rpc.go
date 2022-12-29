@@ -184,4 +184,5 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 			conns <- conn
 		}()
 		select {
-		case
+		case <-ctx.Done():
+		
