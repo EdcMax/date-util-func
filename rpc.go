@@ -185,4 +185,6 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 		}()
 		select {
 		case <-ctx.Done():
-			acceptingConns = 
+			acceptingConns = false
+			break
+		c
