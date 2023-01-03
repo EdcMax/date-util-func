@@ -188,4 +188,5 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 			acceptingConns = false
 			break
 		case client := <-conns: // server is not canceled.
-			wg
+			wg.Add(1)
+			go fun
