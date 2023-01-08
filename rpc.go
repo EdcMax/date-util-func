@@ -192,3 +192,7 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 			go func() {
 				defer wg.Done()
 				rpc.ServeConn(client)
+			}()
+		}
+	}
+	don
