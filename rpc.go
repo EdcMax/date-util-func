@@ -190,4 +190,5 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 		case client := <-conns: // server is not canceled.
 			wg.Add(1)
 			go func() {
-				defer wg.Done(
+				defer wg.Done()
+				rpc.ServeConn(client)
