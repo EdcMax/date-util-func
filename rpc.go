@@ -198,4 +198,6 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 	done := make(chan struct{}, 1)
 	go func() {
 		wg.Wait()
-		done <- s
+		done <- struct{}{}
+	}()
+	select
