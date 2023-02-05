@@ -200,4 +200,6 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 		wg.Wait()
 		done <- struct{}{}
 	}()
-	select
+	select {
+	case <-done:
+		return
