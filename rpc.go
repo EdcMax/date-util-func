@@ -195,4 +195,6 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 			}()
 		}
 	}
-	done := make(chan struct
+	done := make(chan struct{}, 1)
+	go func() {
+	
