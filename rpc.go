@@ -203,4 +203,4 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 	select {
 	case <-done:
 		return nil
-	case <-time.Aft
+	case <-time.After(10 * time.Seco
