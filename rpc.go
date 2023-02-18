@@ -204,4 +204,4 @@ func startServer(ctx context.Context, rpcChan chan<- *rpcMessage, listenPort uin
 	case <-done:
 		return nil
 	case <-time.After(10 * time.Second):
-		return errors.New("RPC s
+		return errors.New("RPC server did not shut dow
